@@ -1,0 +1,1 @@
+Scripts our makefiles uses so we can get to hdt files reasonably painlessly.

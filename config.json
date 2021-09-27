@@ -1,0 +1,56 @@
+{
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@ldf/server/^3.0.0/components/context.jsonld",
+  "@id": "urn:ldf-server:my",
+  "import": "preset-qpf:config-defaults.json",
+  "title": "2005 to 2019 UK local and regional CO2 emissions \u2013 data tables (alternative ODS format)",
+  "datasources": [
+    {
+      "@id": "urn:ldf-server:my:dataset1",
+      "@type": "HdtDatasource",
+      "datasourceTitle": "2005 to 2019 UK local and regional CO2 emissions \u2013 data tables (alternative ODS format)",
+      "description": "2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised.csv-metadata.trig.ttl with an HDT back-end",
+      "datasourcePath": "data",
+      "hdtFile": "./data/2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised.csv-metadata.trig.ttl.hdt"
+    },
+    {
+      "@id": "urn:ldf-server:my:dataset2",
+      "@type": "HdtDatasource",
+      "datasourceTitle": "2005 to 2019 UK local and regional CO2 emissions \u2013 data tables (alternative ODS format)",
+      "description": "2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised-md-prov.ttl with an HDT back-end",
+      "datasourcePath": "data",
+      "hdtFile": "./data/2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised-md-prov.ttl.hdt"
+    },
+    {
+      "@id": "urn:ldf-server:my:dataset3",
+      "@type": "HdtDatasource",
+      "datasourceTitle": "2005 to 2019 UK local and regional CO2 emissions \u2013 data tables (alternative ODS format)",
+      "description": "local-authority-code.ttl with an HDT back-end",
+      "datasourcePath": "data",
+      "hdtFile": "./data/local-authority-code.ttl.hdt"
+    },
+    {
+      "@id": "urn:ldf-server:my:dataset4",
+      "@type": "HdtDatasource",
+      "datasourceTitle": "2005 to 2019 UK local and regional CO2 emissions \u2013 data tables (alternative ODS format)",
+      "description": "local-authority-code-prov.ttl with an HDT back-end",
+      "datasourcePath": "data",
+      "hdtFile": "./data/local-authority-code-prov.ttl.hdt"
+    },
+    {
+      "@id": "urn:ldf-server:my:dataset5",
+      "@type": "HdtDatasource",
+      "datasourceTitle": "2005 to 2019 UK local and regional CO2 emissions \u2013 data tables (alternative ODS format)",
+      "description": "2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised.ttl with an HDT back-end",
+      "datasourcePath": "data",
+      "hdtFile": "./data/2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised.ttl.hdt"
+    },
+    {
+      "@id": "urn:ldf-server:my:dataset6",
+      "@type": "HdtDatasource",
+      "datasourceTitle": "2005 to 2019 UK local and regional CO2 emissions \u2013 data tables (alternative ODS format)",
+      "description": "2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised-ds-prov.ttl with an HDT back-end",
+      "datasourcePath": "data",
+      "hdtFile": "./data/2005-to-2019-local-authority-carbon-dioxide-co2-emissions-dataset-revised-ds-prov.ttl.hdt"
+    }
+  ]
+}
