@@ -1,8 +1,7 @@
 import os
-from pathlib import Path
-
-from os import getcwd, listdir
+from os import listdir
 from os.path import isfile, join
+from pathlib import Path
 
 import docker
 from docker import DockerClient
@@ -13,7 +12,9 @@ this_dir = Path(os.path.dirname(os.path.realpath(__file__)))
 
 def convert_rdf_to_hdt():
     """
-    Convert each rdf file to a hdt file
+    For each dataset:
+    * write all individual nt files to a single nt file
+    * convert that single nt file to a hdt file
     """
 
     hdt_dir = Path(this_dir.parent / "hdt")
@@ -23,16 +24,37 @@ def convert_rdf_to_hdt():
 
     client: DockerClient = docker.from_env()
 
-    # Scoop up the rdf files
-    rdf_files = [Path(rdf_dir / f) for f in listdir(rdf_dir) if isfile(join(rdf_dir, f)) and not f.endswith(".json")]
+    dataset_paths = [Path(rdf_dir / f) for f in listdir(rdf_dir) if not isfile(join(rdf_dir, f))]
 
-    for rdf_file in rdf_files:
-        container: Container = client.containers.run(
-            "rfdhdt/hdt-cpp",
-            command = f"rdf2hdt -f turtle -p -v ./data/rdf/{rdf_file.name} ./data/hdt/{rdf_file.name}.hdt",
-            volumes = {this_dir.parent: {"bind": "/data", "mode": "rw"}},
-        )
+    for dataset_dir in dataset_paths:
 
-    #docker run -it --rm -v "$(pwd)":/data rfdhdt/hdt-cpp rdf2hdt -f turtle -p ./data/rdf/local-authority-code.ttl ./data/out.hdt
+        # Scoop up the rdf files
+        rdf_files = [Path(dataset_dir / f) for f in listdir(dataset_dir) if isfile(join(dataset_dir, f)) and not f.endswith(".json")]
+
+        dataset_nt_out = Path(dataset_dir / "data.nt")
+
+         # Create file as blank
+        with open(dataset_nt_out, "w") as f:
+                f.write("")
+
+        # Write append all nt files to a single nt file
+        # update the data url so we can distinguish from the obs on PMD
+        # (as we have to include it to get the reference data)
+        with open(dataset_nt_out, "a") as f:
+            for rdf_file in rdf_files:
+                with open(rdf_file) as f2:
+                    for line in f2.readlines():
+                        f.write(line.replace(
+                            "http://gss-data.org.uk/data/gss_data/",
+                            "http://gss-data.org.uk/data/gss_fragment_data/",
+                        ))
+
+        # Convert the nt file to a hdt file
+        for rdf_file in rdf_files:
+            container: Container = client.containers.run(
+                "rfdhdt/hdt-cpp",
+                command = f"rdf2hdt -p -v ./data/rdf/{dataset_dir.name}/data.nt ./data/hdt/{dataset_dir.name}.hdt",
+                volumes = {this_dir.parent: {"bind": "/data", "mode": "rw"}},
+            )
 
 convert_rdf_to_hdt()
