@@ -15,7 +15,9 @@ Note: this is first pass and not productionised in any sense (it won't be fast, 
 
 ### Setup
 
-This is **all related to deploying the fragment server to google cloud**. If you're just running one locally for development purposes (or playing) you can ignore this section.
+After you clone, run ``pipenv install` after you cd into your local copy of this repo.
+
+The rest is **all related to deploying the fragment server to google cloud**. If you're just running one locally for development purposes (or playing) you can ignore this section **but** you'll still to export something (anything) in place of `GOOGLE_PROJECT_ID` as its used to make the container name.
 
 Install gcloud cli, [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
 
@@ -59,10 +61,6 @@ Note 1 - `make job=<job url>` will start up a local container with that data.
 Note 2 - only the last successful job will be used, if there's no last succesful job that job url will be ignored.
 
 ### Things to know
-
-Still working through this, but at time of writing I'm switching out the base url `http://gss-data.org.uk/data/gss_data/` for `http://gss-data.org.uk/data/gss_fragment_data/`.
-
-Not wedded to it, but doing it for now as a fragment query still needs to make reference to pmd (for reference data) and it'll get really confusing/slow if your pulling identical obs data from multiple places.
 
 If you do want to run queries against your fragment server you'll need a linked data fragment client, see [https://comunica.dev/docs/](https://comunica.dev/docs/).
 
