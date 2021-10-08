@@ -1,7 +1,9 @@
 
 # Triple Pattern Fragment Server
 
-Server and helper scripts to get one or more of our current datasets deployed as/on a triple pattern fragment server.
+Server and helper scripts to get one or more of our current datasets deployed as/on a triple pattern fragment server along with an example and explanation of how to work with triple pattern fragment servers.
+
+Please note, this is spike/investigation code rather than anything I'd consider finalised/productionised, that said it's viable and it works.
 
 The basic gist is:
 
@@ -11,11 +13,11 @@ The basic gist is:
 
 The makefile will do all the actual work, just be aware of whats its doing.
 
-Note: this is first pass and not productionised in any sense (it won't be fast, don't just dump 40 datasets in).
+Note: this conversion is not productionised in any sense (it won't be fast, don't just dump 40 datasets in).
 
 ### Setup
 
-After you clone, run ``pipenv install` after you cd into your local copy of this repo.
+After you clone, run `pipenv install` after you cd into your local copy of this repo.
 
 The rest is **all related to deploying the fragment server to google cloud**. If you're just running one locally for development purposes (or playing) you can ignore this section **but** you'll still to export something (anything) in place of `GOOGLE_PROJECT_ID` as its used to make the container name.
 
@@ -66,4 +68,4 @@ If you do want to run queries against your fragment server you'll need a linked 
 
 If you do deploy more datasets as fragments, the first time you hit a dataset will be slow, caching will take care of that on subsequent requests.
 
-When we create the HDT file We're modifying url `http://gss-data.org.uk/data/gss_data/` with `http://gss-data.org.uk/data/gss_fragment_data/` this is purely because we're working with published datasets and I want to explicitly distinguish an observation on the fragment server vs the same observation on PMD.
+When we create the HDT file We're modifying all urls contsining `http://gss-data.org.uk/data/gss_data/` to `http://gss-data.org.uk/data/gss_fragments_data/` this is purely because we're working with published datasets and I want to explicitly distinguish an observation on the fragment server vs the same observation on PMD.

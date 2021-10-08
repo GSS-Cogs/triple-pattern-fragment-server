@@ -16,7 +16,7 @@ _Note 2: there's a few different ways/tools for querying linked data fragments, 
 
 The premises of working with linked data fragments is to:
 
-- (a) Start with a more targetted subset of the triples you want, so you can...
+- (a) Start with targetted subsets of the triples you want, so you can...
 - (b) Do your filtering/querying/combining on the client side.
 
 **IMPORTANT** - while the "client" in this context is your laptop, for a productionised approach that may well not be the case. The "client" could just as easily be a web server or search portal. The point is the "client" pulls in and combines the data via a federated query, where that data is availible across multiple urls of a distributed data layer, as opposed to a whole bunch of triples in one big triple store dump.
@@ -81,7 +81,7 @@ This is very similar to a typicsl SPARQL query and supports the same conventions
 
 Things worth noting though:
 
-- Local dimensions will be defined in/on the fragment, so you can get eg label without brining PMD into it.
+- Local dimensions will be defined in/on the fragment, so you can get eg label without bringing PMD into it.
 - Filter earlier than you otherwise would (as soon as you can basically), it's more performant as (I think, thought not 100%) it'll garbage collect the unwanted triples and help you avoid resources constraints.
 - The basic approach is: get what you need from the fragment(s) you're using, then where needed supplement that data with targetted calls to PMD via url encoded CONSTRUCT queries.
 
