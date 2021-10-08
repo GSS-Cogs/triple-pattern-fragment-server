@@ -68,4 +68,4 @@ If you do want to run queries against your fragment server you'll need a linked 
 
 If you do deploy more datasets as fragments, the first time you hit a dataset will be slow, caching will take care of that on subsequent requests.
 
-When we create the HDT file We're modifying all urls contsining `http://gss-data.org.uk/data/gss_data/` to `http://gss-data.org.uk/data/gss_fragments_data/` this is purely because we're working with published datasets and I want to explicitly distinguish an observation on the fragment server vs the same observation on PMD.
+When we create the HDT file We're modifying all urls containing `http://gss-data.org.uk/data/gss_data/` to `http://gss-data.org.uk/data/gss_fragment_data/` this is purely because we're working with published datasets and I want to explicitly distinguish an observation on the fragment server vs the same observation on PMD.
