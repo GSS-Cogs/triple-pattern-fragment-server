@@ -8,7 +8,7 @@ We'll go into how this works and what I've done in detail below, first though, t
 
 It's running the linked data fragments client [https://github.com/comunica/comunica/](https://github.com/comunica/comunica/) via docker, so (as long as you've got docker installed) no other setup should be needed.
 
-_Note: won't be particualarly fast, this is art of the possible stuff, speed/performance/caching etc is a whole different area of investigation._
+_Note: won't be particularly fast, this is art of the possible stuff, speed/performance/caching etc is a whole different area of investigation._
 
 _Note 2: there's a few different ways/tools for querying linked data fragments, communica from the command line is just the most convenient place to start rather than any sort of long term choice._
 
