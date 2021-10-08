@@ -43,7 +43,11 @@ def convert_rdf_to_hdt():
         with open(dataset_nt_out, "a") as f:
             for rdf_file in rdf_files:
                 with open(rdf_file) as f2:
-                    f.write(f2.read())
+                    for line in f2.readlines():
+                        f.write(line.replace(
+                            "http://gss-data.org.uk/data/gss_data/",
+                            "http://gss-data.org.uk/data/gss_fragment_data/",
+                        ))
 
         # Convert the nt file to a hdt file
         for rdf_file in rdf_files:

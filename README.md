@@ -62,6 +62,8 @@ Note 2 - only the last successful job will be used, if there's no last succesful
 
 ### Things to know
 
-If you do want to run queries against your fragment server you'll need a linked data fragment client, see [https://comunica.dev/docs/](https://comunica.dev/docs/).
+If you do want to run queries against your fragment server you'll need a linked data fragment client, see [https://comunica.dev/docs/](https://comunica.dev/docs/). There is an example with a associated readme in `./queries`.
 
 If you do deploy more datasets as fragments, the first time you hit a dataset will be slow, caching will take care of that on subsequent requests.
+
+When we create the HDT file We're modifying url `http://gss-data.org.uk/data/gss_data/` with `http://gss-data.org.uk/data/gss_fragment_data/` this is purely because we're working with published datasets and I want to explicitly distinguish an observation on the fragment server vs the same observation on PMD.
