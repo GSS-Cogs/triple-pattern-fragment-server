@@ -24,7 +24,7 @@ The premises of working with linked data fragments is to:
 
 ### Why a shell script?
 
-We're using the comunicas command line client here. The typical pattern is `<command> <list data source> <sparql query>`. It's just convenient to put that in a shell script and tweak it as needed.
+While using the comunica command line client the pattern is `<command> <list data source> <sparql query>`. It's just convenient to put that in a shell script and tweak it as needed.
 
 ### Breaking Down The Query
 
